@@ -12,7 +12,7 @@ app.get('/distance', (req, res) => {
 })
 
 app.get('/', (req, res) => {
-  res.send("Welcome to Rohtate API")
+  res.send(starsJson);
 })
 
 app.listen(port, () => {
