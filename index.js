@@ -1,17 +1,14 @@
 const express = require('express');
+const csvToJson = require('convert-csv-to-json');
+
+const csvFileName = 'data/stars.csv';
+const starsJson = csvToJson.fieldDelimiter(',').getJsonFromCsv(csvFileName);
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.get('/distance', (req, res) => {
-  res.send([
-    {system: "Alpha Centauri",
-  distance: "4.2441"},
-  {system: "Barnard's Star",
-  distance: "5.9577"},
-  {system: "Luhman 16",
-  distance: "6.5029"}
-  ])
+  res.send(starsJson);
 })
 
 app.get('/', (req, res) => {
